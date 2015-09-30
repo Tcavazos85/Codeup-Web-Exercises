@@ -1,0 +1,73 @@
+/*
+Pattern of style definition
+selector {
+	property1: value1;
+	property2: value2;
+}
+*/
+
+body {
+	background-color: papayawhip;
+}
+
+main {
+	background-color: white;
+}
+
+#wrapper {
+	background-image: url(../img/blue.jpg);
+	color: magenta;
+}
+
+.main {
+	font: oswald;
+}
+.fancy-header {
+            color: crimson;
+            text-decoration: underline;
+        }
+
+#container {
+            color: blue;
+        }
+
+.font {
+            font-size: 3em;
+      }
+#wrapper h2 {
+		font-size: 2em;
+		color: white;
+}
+
+#wrapper>h2 {
+	color: blue;
+}
+
+a:link {
+	color: green;
+}
+
+a:visited { 
+	color: orange;
+}
+
+a:hover {
+	color: red;
+}
+
+a:active {
+	color: blue;
+}
+ol {
+	list-style: upper-alpha;
+}
+ul {
+	list-style: square;
+}
+.table {
+	padding: 50px;
+	font-size: 2em;
+	border: 1px solid black;
+}
+
+ 

@@ -1,0 +1,36 @@
+body {
+	background-color: grey
+}
+
+nav ul {
+	list-style-type: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+nav li {
+	float: left
+}
+
+nav a { 
+	display: block;
+	width: 90px;
+	background-color: pink;
+	border-radius: 30px;
+	
+}
+
+nav a:link{
+	text-decoration: none;
+	color: blue;
+}
+nav a:visited{
+	color: green;
+}
+nav a:hover{
+	color: purple;
+}
+
+nav a:active{
+	color: orange;
+}
