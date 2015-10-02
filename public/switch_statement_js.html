@@ -1,0 +1,42 @@
+<!Doctype html>
+
+<html>
+<head>
+	<title> Switch Statement</title>
+</head>
+<body>
+	<h1>Hello Codeup</h1>
+
+	<script>
+	var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
+	var color = colors[Math.floor(Math.random()*colors.length)];
+
+	var favorite = 'blue';
+	var	message;
+	console.log("the color chosen was " + color);
+	console.log("My favorite color is " + favorite);
+
+
+		switch (color) {
+		 	case "red":
+		 		message = color + " is the color of love";
+		 		break;
+		 	case "orange":
+		 		message  = color + " is the color of happy";
+		 		break;
+		 	case "yellow":
+		 		message =  color + " is the color of sunshine";
+		 		break;
+		 	case "green":
+		 		message = color + " is the color of money";
+		 		break;
+		 	case "blue":
+				message = color + " is the color of water"; 
+				break;
+		 	default:
+		 		message = " I don't know anything about the color";
+		}
+		console.log(message);
+	</script>
+</body>
+</html>
