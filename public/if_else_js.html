@@ -1,0 +1,38 @@
+<!Doctype html>
+
+<html>
+<head>
+	<title> If Else Fun</title>
+</head>
+<body>
+	<h1>Hello Codeup</h1>
+
+	<script>
+	var colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
+	var color = colors[Math.floor(Math.random()*colors.length)];
+
+	var favorite = 'blue';
+	var	message=" ";
+
+		if (color == "red") {
+		 		message = color + " is the color of love";
+		 } else if (color == "orange") {
+		 		message  = color + " is the color of happy";
+		 } else if (color =="yellow") {
+		 		message =  color + " is the color of sunshine";
+		 } else if (color == "green") {
+		 		message = color + " is the color of money";
+		 } else if (color == "blue") { 
+				message = color + " is the color of water"; 
+		 } else {
+		 		message = " I don't know the color";
+		}
+		console.log(message);
+
+		var message = (color == favorite) ? "Blue is your favorite color" : color + " is not you favorite color";
+
+		console.log(message);
+
+	</script>
+</body>
+</html>
