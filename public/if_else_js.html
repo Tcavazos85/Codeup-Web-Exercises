@@ -12,7 +12,9 @@
 	var color = colors[Math.floor(Math.random()*colors.length)];
 
 	var favorite = 'blue';
-	var	message=" ";
+	var	message;
+	console.log("the color chosen was " + color);
+	console.log("My favorite color is " + favorite);
 
 		if (color == "red") {
 		 		message = color + " is the color of love";
@@ -25,11 +27,11 @@
 		 } else if (color == "blue") { 
 				message = color + " is the color of water"; 
 		 } else {
-		 		message = " I don't know the color";
+		 		message = " I don't know anything about the color";
 		}
 		console.log(message);
 
-		var message = (color == favorite) ? "Blue is your favorite color" : color + " is not you favorite color";
+		var message = (color == favorite) ? "blue is your favorite color" : color + " is not your favorite color";
 
 		console.log(message);
 
