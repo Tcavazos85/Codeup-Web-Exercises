@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+	<title>FizzBuzz</title>
+</head>
+<body>
+	<h1>FizzBuzz</h1>
+
+	<ul>
+		<li>Output # 1-100</li>
+		<li>Multiles of 3, "Fizz"</li>
+		<li>Multiples of 5, "Buzz"</li>
+		<li>Multiples of 3 and 5, "FizzBuzz"</li>
+		<li>All others #</li>
+	</ul>
+
+	<script>
+	"use strict";
+	for(var number = 1; number <= 100; number++) {
+
+		if(number % 15 == 0) {
+			console.log("FizzBuzz");
+			continue; 
+		} 
+		if(number % 5 == 0) {
+			console.log("Buzz");
+			continue;
+
+		} 
+		if(number % 3 == 0) {
+			console.log("Fizz");
+			continue;
+		}
+		console.log(number);
+	}
+	
+	</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!doctype html>
+
+<html>
+<head>
+	<title>Functions</title>
+</head>
+<body>
+	<h1>Functions</h1>
+	<script>
+		"use strict";
+
+		function rectanglearea(length, width) {
+			var area = length * width;
+			return area;
+		}
+		var x = rectanglearea(10,5);
+		console.log(x);
+
+		function iseven(input) {
+			return (input % 2 === 0) ? true: false;
+		} 
+		for( var i = 0; i <= 100; i++) {
+			//if(iseven(i)){
+			//	console.log(i + " is even."); 
+			//}
+			var message = ((iseven(i))) ? i + " is even": i + " is odd";
+				console.log(message);
+		}
+
+	</script>
+</body>
+</html>
