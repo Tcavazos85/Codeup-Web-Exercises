@@ -1,0 +1,69 @@
+<!doctype html>
+
+<html>
+<head>
+	<title>Areas</title>
+</head>
+<body>
+	<ul>
+		<li>Circle</li>
+		<li>rectangle</li>
+		<li>shaded area in a rectangle</li>
+	</ul>
+	<script>
+	"use strict";
+
+	function rectangle(length, width) {
+		var rarea = length * width;
+		return rarea;
+	}
+		var x = rectangle(15,8)
+		console.log(x);
+
+	function triangle(base, height){
+		var triarea = (base*height)/2;
+		return triarea;
+	}
+		var y = triangle(9,8);
+		console.log(y);
+
+	function circle(radius){
+		var cirarea = (Math.PI) * (radius)*(radius);
+		return cirarea;
+	}
+		var z = circle(4);
+		console.log(z);
+
+		function perimeter(rads) {
+			var peri = 2*(Math.PI)*rads;
+			return peri;
+		}
+		var p = perimeter(4);
+		console.log(p);
+
+	function trapezoid(b1, b2, ht) {
+		var tarea = ((b1+b2)/2)*ht;
+		return tarea;
+	}
+		var t = trapezoid(12, 9, 6);
+		console.log(t);
+
+	function hexagon(side){
+		var hexarea = (1.5*(Math.sqrt(3)))*side*side;
+		return hexarea;
+		}
+
+		var h = hexagon(4);
+		console.log(h)
+
+	function david (side2) {
+		var equi = (3*(Math.sqrt(3)))*side2*side2;
+		return equi;
+	} 
+		var eq = david(4);
+		console.log(eq);
+
+	</script>
+
+</body>
+</html>
