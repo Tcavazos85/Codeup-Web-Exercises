@@ -1,0 +1,73 @@
+<!doctype html>
+
+<html>
+<head>
+	<title>Hi Low game</title>
+</head>
+<body>
+	<h1>Hi Low Game</h1>
+	<script >
+		function random() {
+			var rand = Math.floor((Math.random() * 50)+ 1);
+			return rand;
+		}
+
+		function again() {
+			var answer = confirm("do you want to play again?");
+			return answer;
+		}
+
+		function getguess() {
+				var guess = prompt("please enter your guess between 1 and 50.");
+				return guess;
+		}
+
+		function valid(guess) {
+			var parsedguess = parseInt(guess);
+			if (isNaN(parsedguess)) {
+				return false;
+			} else {
+				return true;
+			}
+		}
+
+		function validguess() {
+			do {
+				var guess = getguess();
+
+			} while (valid(guess) == false);
+				return guess;
+			}	
+
+		function playGame() {
+			
+			var ran = random();
+			console.log(ran);
+			
+			do {
+				var guess = validguess();
+
+				if (guess == ran) {
+					alert("You did it");
+				} else if (guess > ran) {
+					alert("Too high");
+				} else if(guess < ran) {
+					alert("too low");
+				}
+
+			} while (ran != guess);
+			
+		}
+
+		playGame();
+		 var replay = again();
+		if(replay) {
+			playGame();
+		}
+	
+
+	</script>
+	
+
+</body>
+</html>
