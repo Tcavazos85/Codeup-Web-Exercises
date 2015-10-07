@@ -1,0 +1,56 @@
+<!doctype html>
+
+<html>
+<head>
+	<title> Guess The Number</title>
+</head>
+<body>
+	<h1>Guess The Number</h1>
+
+	<script>
+	"use strict";
+
+	//Here are the challenges I gave you during class this afternoon. If you have any questions about the challenges let me know.
+
+//HIGH LOW CHALLENGE
+
+//1 Generate a random number
+		var number = Math.floor((Math.random()*100)) + 1;
+		var guess = prompt("Guess a number between 1 and 100."); 
+//2. Have the user guess the number
+	
+//3. Check the user's guess with the random number
+		Do {
+			prompt("Guess again, your guess was too high.");
+		} 	while(number < guess) {
+			
+		
+		DO {
+			prompt("Guess again, your number was too low.");
+		}	while(number > guess);
+		Do {
+			alert("Yeah you guessed right!! Congratulations!!");
+		} while(number ==guess){
+			
+
+//4. If they guess high or low let them know
+//5. Have the user keep guessing until they get it right
+	
+//Extra:
+//1. Set a guess limit
+//2. Make an option to play again(new random number)
+
+//USER INPUT AREAS
+
+//1. Ask for a shape to calculate(use the shapes from earlier exercise)
+//2. Ask for all the information you need to find the area
+//3. Display the calculated area
+
+//Extra:
+//1. Round the area to the second decimal place
+//2. Ask if they want to calculate another shape's area
+
+</script>
+
+</body>
+</html>

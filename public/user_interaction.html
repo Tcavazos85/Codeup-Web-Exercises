@@ -10,12 +10,22 @@
 "use strict"
 // todo: Ask the user for their name.
 //       Keep asking if an empty input is provided.
+ var name;
  var message;
   do {
-  	var name = prompt("what is your name?");
-  } while (name != "");
-	message = "Hello " + name  
-  code.log(message);
+  	name = prompt("what is your name?");
+  } while (name =="");
+
+ if (name !== "") {
+ 	console.log("Hello " + name);
+ 	
+}
+alert("Hello " + name);
+
+if(confirm("do youlike pizza?")){
+	console.log("we do too!!!")
+}
+
 
 
 // todo: Show an alert message that welcomes the user based on their input.
