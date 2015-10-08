@@ -1,0 +1,25 @@
+<!doctype html>
+
+<html>
+<head>
+	<title>Objects</title>
+</head>
+<body>
+	<h1>Objects</h1>
+	<script>
+	"use strict";
+	var student = {};
+
+	student.firstName = "Gigi";
+	student.lastName = "Saenz";
+
+	student.sayHello = function() {
+		console.log(this.firstName + " " + this.lastName + " says Hi everybody!!");
+	};
+
+	student.sayHello();
+
+	
+	</script>
+</body>
+</html>
