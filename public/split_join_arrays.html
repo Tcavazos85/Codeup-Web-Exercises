@@ -1,0 +1,28 @@
+<!doctypes html>
+
+<html>
+<head>
+	<title>Splitting and Joining</title>
+</head>
+<body>
+	<h1>Splitting and joining</h1>
+	<script>
+	"use strict";
+	// todo:
+	// Copy the array of planets you created in the last lesson.
+	var planets = ["Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Neptune"];
+
+	// todo: Join the planets array with pipes (|) to create a variable named 'planetsAsString'.
+
+	var planetsAsString = planets.join('|');
+
+	console.log(planetsAsString);
+
+	// todo: Split the 'planetsAsString' variable by pipes (|) to create a variable named 'planetsAsArray'.
+
+	var planetsAsArray = planetsAsString.split("|");
+	console.log(planetsAsArray);
+
+	</script>
+</body>
+</html>
