@@ -19,9 +19,17 @@ var names=["Gigi","Jordan","Natalia","Matthew"];
 console.log(names.length);
 
 
-for(var i =0; i < names.length; i +=1) {
-	console.log(names[i]);
-}
+//for(var i =0; i < names.length; i +=1) {
+//	console.log(names[i]);
+//}
+
+names.forEach(function (element, index, array) {
+	console.log("The name at index " + index + " is " + element);
+});
+
+names.forEach(function (name, index, array){
+	console.log(name);
+});
 
 </script>
 
