@@ -18,37 +18,48 @@
 	var books = [{
 		
 		title : "Brothers Karamozov",
-		authorLastName : "Dostoyevsky",
-		authorFirstName : "Fyodor"
-		},
+		
+		author : {
+			 lastName : "Dostoyevsky",
+			 firstName : "Fyodor"
+		}
+	},
 		
 		{ 
-		
 		title : "East of Eden",
-		authorLastName : "Steinbeck",
-		authorFirstName : "John"		
-		}, 
+		
+		author : {
+			lastName : "Steinbeck",
+			firstName : "John"		
+		} 
+	},
+		
+		{
+		title : "The Art of Racing In The Rain",
+		
+		author : {
+			lastName : "Stein",
+			firstName : "Garth"
+		} 
+	},
 
 		{
-		
-		title : "The Art of Racing In The Rain",
-		authorLastName : "Stein",
-		authorFirstName : "Garth"
-		}, 
-		
-		{
-	
 		title : "Love In The Time of Cholera",
-		authorLastName : "Garcia-Marquez",
-		authorFirstName : "Gabriel"
-		}, 
 		
+		author : {
+			lastName : "Garcia-Marquez",
+			firstName : "Gabriel"
+		}
+	},
+
 		{
+		title : "Les Miserables",
 		
-		title : "Les Miserables",	
-		authorLastName : "Hugo",
-		authorFirstName : "Victor"
-		}]
+		author : {
+			lastName : "Hugo",
+			firstName : "Victor"
+		}
+	}]
 
 	// log out the books array
 	console.log(books);
@@ -60,7 +71,7 @@
 
 	    console.log("Book #" + (index + 1));
 	    console.log("Title: " + book.title);
-	    console.log("Author: " + book.authorFirstName + " " +book.authorLastName);
+	    console.log("Author: " + book.author.firstName + " " +book.author.lastName);
 	    console.log("---");
 	})
 	// end loop here
