@@ -1,4 +1,5 @@
 "use strict";
+(function() {
 var circle = {
 	radius : 3,
 	getArea: function() {
@@ -24,3 +25,4 @@ circle.radius = 5
 
 circle.logInfo(false);
 circle.logInfo(true);
+})();
