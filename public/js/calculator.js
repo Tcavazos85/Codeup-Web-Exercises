@@ -1,8 +1,8 @@
 "use strict";
 
-function listener(event) {
-	console.log(this);
-}
+// function listener(event) {
+// 	console.log(this);
+// }
 
 var buttons = document.getElementsByClassName("number");
 var left = document.getElementById("left");
@@ -11,6 +11,8 @@ var right = document.getElementById("right");
 var operator = document.getElementsByClassName("operand");
 var equal = document.getElementById("equals");
 var clear = document.getElementById("clear");
+var decimal = document.getElementById("decimal");
+
 
  for ( var i = 0; i < buttons.length; i+=1) {
  	buttons[i].addEventListener("click", numbers, false);
@@ -39,8 +41,7 @@ function operands() {
  }
  
  clear.addEventListener("click", clean, false);
-
-
+ 
  function answers() {
  	var answer = 0;
  	if (middle.value == "+") {
@@ -53,7 +54,7 @@ function operands() {
 	 	answer = parseFloat(left.value)/parseFloat(right.value);
     }
     clean();
-    left.value = answer.toFixed(4);  
+    left.value = answer;  
 }
 equal.addEventListener("click", answers, false);
 

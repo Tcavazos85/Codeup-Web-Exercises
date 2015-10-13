@@ -17,10 +17,8 @@ var clear = document.getElementById("clear");
  }
 
 function numbers() {
-	if (middle.value == 0){
-		left.value += this.getAttribute("data-value");
-	} else if (middle != 0){
-		right.value += this.getAttribute("data-value");
+	if (equal !== 0){
+		display.value += this.getAttribute("data-value");
 	}
 }
 

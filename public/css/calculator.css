@@ -1,10 +1,14 @@
 
+body {
+  width: 600px;
+  margin: 0 auto;
+}
 
 button {
   width: 100px;
   height: 60px;
   float: left;
-  font-size: 20px;
+  font-size: 2em;
   color: white;
   margin-left: 10px;
   background-color: blue;
@@ -14,12 +18,17 @@ button {
   margin-left: 10px;
   margin-top: 20px;
   width: 500px;
-  height: 300px;
+  height: 350px;
   background-color: grey;
+
 }
 
 input {
   margin-top: 10px;
   margin-bottom: 10px;
+  margin-left: 10px;
+}
+
+h1 {
   margin-left: 10px;
 }
