@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Konami Code</title>
+</head>
+<body>
+    <h1>Konami Code</h1>
+
+<!-- the arrows have the following which values
+left 37, up 38, right 39, down 40, a 65, b 66, enter 13 -->
+
+<!-- the code should be a string that reads 38 38 40 40 37 39 37 39 65 66 13 so i need a function that captures the input into a string of numbers then compares it to the constant answer string, if it does not match it should prompt them to try again. I need to compare  -->
+    <script src="/js/jquery.js"></script>
+    <script>
+        "use strict";
+        var code = [38,38,40,40,37,39,37,39,66,65,13];
+        var index = 0;
+    
+       $(document).keyup(function(event){
+            var userEnteredCode = event.keyCode;
+            console.log(userEnteredCode);
+         if (userEnteredCode == code[index]) {
+         	index++;
+         } else { 
+         		index = 0;
+         		console.log("You entered the wrong code");
+       }
+       	if (index == code.length) {
+       		index = 0;
+       		alert("you have added 30 lives!!!");
+       	};
+	 }); 
+    </script>
+</body>
+</html>
+
+      
