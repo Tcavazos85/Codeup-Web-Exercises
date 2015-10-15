@@ -22,11 +22,16 @@
 // Include code from previous example
 
 // Set our address to geocode
-var address = "300 Alamo Plaza, San Antonio, TX, 78205";
+var address = "18720 Stone Oak Parkway, San Antonio, TX, 78258";
 
 // Init geocoder object
 var geocoder = new google.maps.Geocoder();
-
+var sushi = { lat: 29.609863, lng: -98.491057};
+// Add the marker to our existing map
+var marker = new google.maps.Marker({
+      position: sushi,
+      map: map
+  });
 // Geocode our address
 geocoder.geocode({ "address": address }, function(results, status) {
 
@@ -48,13 +53,32 @@ geocoder.geocode({ "address": address }, function(results, status) {
 
             // This sets the center of the map at our location
             center: {
-                lat:  29.4284595,
-                lng: -98.492433
-            }
-        };
+                lat:  29.609863,
+                lng: -98.491057
+            },
+            // Show this map in satellite view
+            mapTypeId: google.maps.MapTypeId.SATELLITE
 
+        };
         // Render the map
         var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+
+        var sushi = { lat: 29.609863, lng: -98.490657};
+        var image = "img/sushi.png"
+        // Add the marker to our existing map
+        var marker = new google.maps.Marker({
+              position: sushi,
+              map: map,
+              icon: image 
+          });
+        // Create a new infoWindow object with content
+        var infowindow = new google.maps.InfoWindow({
+            content: "Feeding the world, one fish at a time."
+        });
+
+        // Open the window using our map and marker
+        infowindow.open(map, marker);
+
     })();
     </script>
 </body>
