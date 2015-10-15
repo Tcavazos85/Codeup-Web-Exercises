@@ -8,11 +8,11 @@
 	<h1 id ="cool" class = "codeup">JQUERY IS COOL</h1>
 
 	<div class = "division">
-		<ul class = "list">
-			<li id = "books" class = "codeups">Brothers Karamozov</li>
-			<li id = "books2">East of Eden</li>
-			<li id = "books3">Love In The Time of Cholera</li>
-			<li id = "books4" class = "codeup">The Art of Racing In The Rain</li>
+		<ul class = "navigation" id "nav-links">
+			<li id = "books"> <a href= "#"> Brothers Karamozov</a></li>
+			<li id = "books2"><a href = "#">East of Eden</a></li>
+			<li id = "books3"><a href = "#">Love In The </a>Time of Cholera</li>
+			<li id = "books4"><a href = "#">The Art of R</a>acing In The Rain</li>
 
 		<P class = "codeup"> Above is a list of books that I have enjoyed reading over the years.  They are Great examples of writing that inspires, entertains and creates great stories.</P>
 		
@@ -25,11 +25,27 @@
         "use strict";
 
          $(document).ready(function() {
-            $('li', "p", "h1").css('font-size', '20px');
-        });
-			{
-            $("h1").css('background-color', 'yellow');
-        };
+            "use strict";
+            
+            $('.navigation a').click(function(e) {
+                e.preventDefault();
+
+                $(this).css("background-color", "#4f4");
+            });
+
+            $(".navigation a").dblclick(function() {
+                $(this).css("background-color", "#fff")
+            });
+
+             $(".navigation a").hover (
+                function() {
+                    $(this).css('background-color', '#FF0');
+                },
+                function() {
+                    $(this).css('background-color', '#fff');
+                });
+
+    	});
     </script>
 </body>
 </html>
