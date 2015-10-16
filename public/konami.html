@@ -19,6 +19,11 @@ left 37, up 38, right 39, down 40, a 65, b 66, enter 13 -->
        $(document).keyup(function(event){
             var userEnteredCode = event.keyCode;
             console.log(userEnteredCode);
+      // you could also push things
+      // if index[userEnteredCode.length -1] != code[userEnteredCode.length -1] {
+      //    index = [];
+      //}
+      //  if 
          if (userEnteredCode == code[index]) {
          	index++;
          } else { 
