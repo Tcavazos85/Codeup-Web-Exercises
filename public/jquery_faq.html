@@ -57,7 +57,7 @@
  "use strict";
  	$(document).ready(function() {
  		$("dt").click(function() {
-            $("dd").fadeToggle();	
+            $("dd").slideToggle();	
  			});
         });
  	
@@ -68,10 +68,10 @@
  	// $("li:first-child").css("font-weight", "bold");
 
  	$("li").click(function(){
- 		$("ul").fadeOut();
+ 		$("ul").slideUp();
  	});
 	$("h3").click(function(){
-		$("ul").fadeIn();
+		$("ul").slideDown();
 	});
 
  </script>
