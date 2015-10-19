@@ -20,6 +20,14 @@
             position: relative;
             width: 250px;
         }
+
+        #rectangle {
+            background-color: blue;
+            height: 100px;
+            width: 150px;
+            margin: 15px;
+            position: relative;
+        }
     </style>
 </head>
 <body>
@@ -33,6 +41,8 @@
 
     <div id="animate-box"></div>
 
+    <div id ="rectangle"></div>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script>
     $(document).ready(function() {
@@ -40,25 +50,25 @@
 
         // TODO: "Move It" should move the box 100 pixels to the left
         $("#btn-move").click(function(){
-            $("#animate-box").animate({
+            $("#animate-box, #rectangle").animate({
                 left: "-=100px",
             }, 1000);
         });
         // TODO: "Scale It" should expand the box width by 50%
         $("#btn-scale").click(function(){
-            $("#animate-box").animate({
+            $("#animate-box, #rectangle").animate({
                 width: "+=125px",
             }, 1000);
         });
         // TODO: "Hide It" should use opacity to make the box invisible
         $("#btn-hide").click(function(){
-            $("#animate-box").animate({
+            $("#animate-box, #rectangle").animate({
                 opacity: "0",
             }, 1000);
         });
         // TODO: "Show It" should make the box appear
         $("#btn-show").click(function(){
-            $("#animate-box").animate({
+            $("#animate-box, #rectangle").animate({
                 opacity: "1",
             }, 1000);
         });
@@ -67,7 +77,7 @@
         //      2) Hide the box
         //      3) Reset the box back to its original position and opacity
         $("#btn-all").click(function(){
-            $("#animate-box").animate({
+            $("#animate-box, #rectangle").animate({
                 left: "-=100px", 
             },1000).animate({
                 width: "+=125px",
@@ -79,7 +89,6 @@
                 width: "250px",
             }, 1000);
         });
-
     });
     </script>
 </body>
