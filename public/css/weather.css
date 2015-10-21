@@ -1,0 +1,32 @@
+
+.container-fluid{
+	background-color: #F0F8FF;
+}
+
+
+#day {
+	text-align: center;
+	background-color: #A9A9A9;
+	border-style: solid;
+	border-width: 1px;
+	height:	150px;
+	box-shadow: 10px 10px 5px #888888;
+}
+
+#day3 {
+	text-align: center;
+	background-color: #00BFFF;
+	border-style: solid; 
+	border-width:	1px;
+	height: 150px;
+	box-shadow: 10px 10px 5px #888888;
+}
+
+#map-canvas {
+	height:	500px;
+	width: 700px;
+	border-style: solid; 
+	border-width:	5px;
+	margin-left: 250px;
+	margin-top: 25px;
+}

@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+<head>
+	<title>The J Blog</title>
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="/css/blog.css">
+</head>
+<body>
+	<nav class="navbar navbar-default">
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+	      <a class="navbar-brand" href="#">The J Blog</a>
+	    </div>
+	    <div>
+	      <ul class="nav navbar-nav">
+	        <li class="active"><a href="#">Home</a></li>
+	      </ul>
+	    </div>
+	  </div>
+	</nav>
+	<div class="jumbotron">
+	    <h1>The J Blog</h1> 
+	  </div>
+
+	<div class="col-sm-9"  id="posts">
+	</div>
+
+	<div class="col-sm-3"id="photos">
+		<h3>Photos</h3>	
+	</div>
+
+	</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+<script>
+(function() {
+    function blogpost(){
+        $.get("/data/blog.json").done(function(data){
+            // console.log("Here is the data you wanted");
+            // console.log(data);
+            data.forEach(function(parse){
+            	var content = parse.content + "<br>"
+            	var date = parse.date + "<br> "
+            	var cat = parse.categories.join(", ") + "<br>"
+            	var title = parse.title + "<br>"
+            	var posts = "<h3 id='title'>"
+            		posts += title + "</h3>"
+            		posts += "<div id='date'>"
+            		posts += date + "</div>"
+            		posts += "<div id='content'>"
+            		posts += content + "</div>"
+					posts += "</div>"
+					posts += "<div id='photos'>"
+					posts += cat + "</div>"
+
+		        $("#posts").append(posts);
+		        // $("#categories").append(cats);		        
+            });
+        });
+    }
+    blogpost();
+})();
+</script>
+
+
+</body>
+</html>
+		       
+            		
+		       	

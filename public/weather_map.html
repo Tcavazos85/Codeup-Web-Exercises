@@ -1,0 +1,131 @@
+<!doctype html>
+
+<html>
+<head>
+	<title>Weather Map</title>
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="/css/weather.css">
+</head>
+<body>
+	<h3>Weather Map</h3>
+	<div class ="container-fluid">
+		<h3>San Antonio</h3>
+
+		
+			<div id = "day"></div>
+			<div id ="day3"></div>
+
+			<div id="map-canvas"></div>
+			
+			<div id="coordinates">
+				<p>Please type in the latitude</p>
+				<input type="number" id="latitude">
+				<p>Please type in your longitude</p>
+				<input type="number" id="longitude">
+
+			</div>
+	</div>
+		
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRGwSLSC1DuLDpkhl-s1Bf4mDsLIx3w3Y"></script>
+<script type="text/javascript">
+
+(function() {
+        "use strict";
+  //    	var lat = getElementById(latitude);
+  //    	var lng = getElementById(longitude);
+		// var where = {lat: lat, lng: lng};
+		// var marker = new google.maps.Marker({
+		// 	position: where
+		// 	map: map
+		// 	draggable: true
+		// })
+
+
+    var mapOptions;
+	var address = "112 E Pecan, San Antonio, TX, 78201";
+	var geocoder = new google.maps.Geocoder();
+	geocoder.geocode({ "address": address }, function(results, status) {
+   
+	   if (status == google.maps.GeocoderStatus.OK) {
+	         mapOptions = {
+	            zoom: 18,
+	            center: {
+	               lat:  29.4284595,
+	               lng: -98.492433
+	            },
+	            
+	        };
+
+	        var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+	   } else {
+	       alert("Geocoding was not successful - STATUS: " + status);
+	   }
+	});
+
+function daily(){
+	$.get("http://api.openweathermap.org/data/2.5/weather", {
+	    APPID: "8b7ed646e1fa38e9cb9106eba7b3ace5",
+	    lat:    29.423017,
+	    lon:   -98.48527,
+	    units: "imperial"
+	}).done(function(data) {
+	    console.log(data);
+	    // data.main.forEach(function(data.main){
+	    	var now = Math.floor(data.main.temp)
+	    	var humidity = Math.floor(data.main.humidity)
+	    	var pressure = Math.floor(data.main.pressure)
+	    	// var daily = "<div id = 'day' >"
+	    	var	daily = now + "&deg;" + "<br>"
+	    		daily += "<img src='http://openweathermap.org/img/w/"+ data.weather[0].icon + ".png'> <br>"
+	    		daily += "humidity: " + humidity + "%" +"<br>"
+	    		daily += "pressure: " + pressure + "mb" + "<br>"
+	    		// daily += "</div>"
+
+	    	$("#day").append(daily);
+		});
+}
+function forecast() {
+	$.get("http://api.openweathermap.org/data/2.5/forecast/daily", {
+	    APPID: "8b7ed646e1fa38e9cb9106eba7b3ace5",
+	    lat:    29.423017,
+	    lon:   -98.48527,
+	    units: "imperial",
+	    cnt: 3
+	}).done(function(data) {
+    	console.log(data);
+    	data.list.forEach(function(day){
+    		var high = Math.floor(day.temp.max)
+    		var low = Math.floor(day.temp.min)
+    	 	var humidity = Math.floor(day.humidity)
+    		var pressure = Math.floor(day.pressure)
+    		var day1 = "<div id = 'day3' class = 'col-sm-4'>"
+    			day1 += high + "&deg;" + "/" + low + "&deg;"+ "<br>"
+    			day1 += "<img src='http://openweathermap.org/img/w/"+ day.weather[0].icon + ".png'> <br>"
+    			day1 += "humidity:" + humidity + "%"+ "<br>"
+    			day1 += "pressure:" + pressure + "mb"+ "<br>"
+    			day1 += "</div>"
+
+    		$("#day3").append(day1);
+    	});
+	});
+}	 
+daily();
+forecast();
+})();
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+	
+
+
+
