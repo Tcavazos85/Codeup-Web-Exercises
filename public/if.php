@@ -30,7 +30,7 @@ $a = 5;
 
  if ($b === $c) {
      // output the appropriate result
-     echo "$b is identical to $c\n";
+     echo "$b is identical to and has the same type as $c\n";
  }
 
  // output the appropriate result
