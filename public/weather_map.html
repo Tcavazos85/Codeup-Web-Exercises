@@ -9,21 +9,20 @@
 <body>
 	<h3>Weather Map</h3>
 	<div class ="container-fluid">
-		<h3>San Antonio</h3>
 
+				<p>Please type in the latitude
+				<input type="number" id="latitude">
+				Please type in your longitude
+				<input type="number" id="longitude">
+				<button id="button">Submit</button></p>
 		
+		<h3 id ="city">San Antonio</h3>
 			<div id = "day"></div>
 			<div id ="day3"></div>
 
 			<div id="map-canvas"></div>
 			
-			<div id="coordinates">
-				<p>Please type in the latitude</p>
-				<input type="number" id="latitude">
-				<p>Please type in your longitude</p>
-				<input type="number" id="longitude">
-
-			</div>
+			
 	</div>
 		
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
@@ -32,42 +31,47 @@
 
 (function() {
         "use strict";
-  //    	var lat = getElementById(latitude);
-  //    	var lng = getElementById(longitude);
-		// var where = {lat: lat, lng: lng};
-		// var marker = new google.maps.Marker({
-		// 	position: where
-		// 	map: map
-		// 	draggable: true
-		// })
-
-
     var mapOptions;
-	var address = "112 E Pecan, San Antonio, TX, 78201";
+ 	document.getElementById('latitude').value= "29.4284595";
+ 	document.getElementById('longitude').value="-98.492433";
+ 	var place = document.getElementById('button');
+
+ 		place.addEventListener("click", getWeather({ 
+	 		var lat = getElementById("latitude");
+	 		var lng = getElementById("longitude");
+			var where = {lat: lat, lng: lng};
+	 		}));
+
+
+function coordinates() {
 	var geocoder = new google.maps.Geocoder();
+
 	geocoder.geocode({ "address": address }, function(results, status) {
    
 	   if (status == google.maps.GeocoderStatus.OK) {
 	         mapOptions = {
 	            zoom: 18,
-	            center: {
-	               lat:  29.4284595,
-	               lng: -98.492433
-	            },
-	            
+	            center: where,
 	        };
 
 	        var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+			var marker = new google.maps.Marker({
+				position: where,
+				map: map,
+				draggable: true,
+				title: "Let's Go!"
+			});
 	   } else {
 	       alert("Geocoding was not successful - STATUS: " + status);
 	   }
 	});
+}
 
 function daily(){
 	$.get("http://api.openweathermap.org/data/2.5/weather", {
 	    APPID: "8b7ed646e1fa38e9cb9106eba7b3ace5",
-	    lat:    29.423017,
-	    lon:   -98.48527,
+	    lat:    lat,
+	    lon:   	lng,
 	    units: "imperial"
 	}).done(function(data) {
 	    console.log(data);
