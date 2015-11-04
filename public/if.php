@@ -17,7 +17,7 @@
      echo "$b is greater than or equal to $c\n";
  }else {
      // output the appropriate result
-     echo "$b is less than $c\n";
+     echo "$b is not greater than or equal $c\n";
  }
 
  // combine the next 4 conditionals into
@@ -26,15 +26,15 @@
  if ($b === $c) {
      // output the appropriate result
      echo "$b is identical to $c\n";
- }elseif ($b == $c) {
+ }else if ($b == $c) {
      // output the appropriate result
      echo "$b is equal to $c\n";
- }elseif ($b !== $c) {
-     // output the appropriate result
-     echo "$b is not identical to $c\n";
- }else {
+ }else if ($b != $c) {
      // output the appropriate result
      echo "$b is not equal to $c\n";
+ }else if ($b !== $c) {
+     // output the appropriate result
+     echo "$b is not identical to $c\n";
  }
-
+ 
  ?>
