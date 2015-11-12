@@ -6,19 +6,20 @@ $things = ['football','traveling','languages','golf','beer','jazz'];
 <head>
 	<title>My favorite things</title>
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-	
+
 </head>
 <body>
 	<div class="container">
-		<table class="table-striped">
-			<thead>My Favorite Things</thead>
+		<h1>My Favorite Things</h1>
+		<table class="table table-striped">
+			<thead></thead>
 			
 			<tbody>
-				<?php foreach($things as $thing){ ?>
+				<?php foreach($things as $thing): ?>
 				<tr> 
-					<td> <?php echo $thing.PHP_EOL ?> </td>
+					<td> <?= $thing.PHP_EOL ?> </td>
 				</tr>
-				<?php } ?>
+				<?php endforeach; ?>
 			</tbody>
 		</table>
 	</div>
