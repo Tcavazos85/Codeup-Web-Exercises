@@ -12,6 +12,9 @@ function pageController()
 		'nameRandom' 		=> $nameRandom,
 		'adjectivesRandom' 	=> $adjectivesRandom
 	);
+
+	// ternary
+	// $personName = isset($_Get['person_name']) ? $_Get['person_name'] : 'Hampton';
 }
 extract(pageController());
 
@@ -23,6 +26,7 @@ extract(pageController());
 
 	</head>
 	<body>
+		<?php var_dump($_Get); ?>
 		<H1><?= "{$adjectives[$adjectivesRandom]} {$nouns[$nameRandom]}"; ?> </H1>
 	</body>
 </html>
