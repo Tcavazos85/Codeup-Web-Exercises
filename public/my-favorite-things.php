@@ -1,5 +1,14 @@
 <?php 
-$things = ['football','traveling','languages','golf','beer','jazz'];
+date_default_timezone_set('America/Chicago');
+function pageController()
+{
+	$things = ['football','traveling','languages','golf','beer','jazz'];
+
+	return array(
+		'things' => $things
+	);
+}
+extract(pageController());
 ?>
 <!DOCTYPE html>
 <html>
