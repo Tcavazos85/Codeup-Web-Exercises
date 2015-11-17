@@ -2,5 +2,6 @@
 require_once 'Log.php';
 
 $test = new Log ();
-$test-> info('message');
-$test-> error('message');
+$test->$prefix = 'cli';
+var_dump($test);
+
