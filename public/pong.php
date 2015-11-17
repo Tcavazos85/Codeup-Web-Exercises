@@ -1,7 +1,9 @@
 <?php
 function pageController()
 {
-	$counter = isset($_GET['counter']) ? $_GET['counter'] : 0;
+	
+	require 'functions.php'; 	
+	$counter = inputGetKey('counter', 0);
 	
 	return array(
 		'counter'	=> $counter,
