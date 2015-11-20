@@ -1,10 +1,11 @@
 <?php
+require_once 'Input.php';
+require_once 'functions.php'; 	
+
 function pageController()
 {
-	
-	require 'functions.php'; 	
 
-	$counter = inputGetKey('counter', 0);
+	$counter = Input::get('counter', 0);
 		
 	return array(
 		'counter'	=> $counter,

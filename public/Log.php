@@ -3,33 +3,34 @@
 class Log 
 {
 	public $filename = '';
-	public $prefix;
 	public $handle;
 
-
-	public function __contruct($prefix = 'log')
+	public function __construct($prefix = 'log')
 	{
-		$filename = '{$prefix}-date("Y-m-d").log';
-	    $handle = fopen($filename, 'a');
-		
-	}
-
-
-	public function logMessage($logLevel,$message){
 		$today = date("Y-m-d");
-		$todayLog = date("Y-m-d h:i:s");
-	    fwrite($handle, PHP_EOL.$todayLog.' '.$logLevel.' '.$message.PHP_EOL);
+		$this->filename = $prefix.'-'. $today.'log';
+	    $this->handle = fopen($this->filename, 'a');	
 	}
-
-	public function info($message){
-		$this->logMessage("INFO",$message);
-	}
-	public function error($message){
-		$this->logMessage("ERROR",$message);
-	}
+	
 	public function __destruct()
 	{
-	    fclose($handle);
+	    fclose($this->handle);
 
+	}
+
+	public function logMessage($logLevel,$message)
+	{
+		$todayLog = date("Y-m-d h:i:s");
+	    fwrite($this->handle, PHP_EOL.$todayLog.' '.$logLevel.' '.$message.PHP_EOL);
+	}
+
+	public function info($message)
+	{
+		$this->logMessage("INFO",$message);
+	}
+	
+	public function error($message)
+	{
+		$this->logMessage("ERROR",$message);
 	}
 }

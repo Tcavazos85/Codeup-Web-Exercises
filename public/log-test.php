@@ -1,7 +1,6 @@
 <?php
 require_once 'Log.php';
 
-$test = new Log ();
-$test->$prefix = 'cli';
-var_dump($test);
-
+$test = new Log ('cli');
+$test-> info('message');
+$test-> error('message');
