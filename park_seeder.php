@@ -4,7 +4,7 @@ define('DB_NAME', 'parks_db');
 define('DB_USER', 'parks_user');
 define('DB_PASS', 'password');
 
-require 'db_connect.php';
+require_once 'db_connect.php';
 
 echo $dbc->getAttribute(PDO::ATTR_CONNECTION_STATUS) . "\n";
 
