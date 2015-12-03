@@ -4,7 +4,7 @@ define('DB_NAME', 'parks_db');
 define('DB_USER', 'parks_user');
 define('DB_PASS', 'password');
 
-require 'db_connect.php';
+require_once 'db_connect.php';
 
 echo $dbc->getAttribute(PDO::ATTR_CONNECTION_STATUS) . "\n";
 
@@ -18,6 +18,7 @@ $query = 'CREATE TABLE national_parks (
     location VARCHAR(240) NOT NULL,
     date_established DATE NOT NULL,
     area_in_acres DOUBLE NOT NULL,
+    description VARCHAR(500) NOT NULL,
     PRIMARY KEY (id)
 )';
 
