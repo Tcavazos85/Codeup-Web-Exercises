@@ -15,4 +15,9 @@ class Rectangle
     {
         return $this->length * $this->width;
     }
+    public function perimeter()
+		{
+			$perimeter = ($this->length + $this->width) *2;
+			return $perimeter.PHP_EOL;
+		}
 }
