@@ -40,7 +40,7 @@ function insertPark($dbc)
 {
 	$name = Input::getString('name');
 	$location=Input::getString('location');
-	$date_established= Input::getString('date_established');
+	$date_established= Input::getDate('date_established')->format('Y-m-d');
 	$area_in_acres= Input::getString('area_in_acres');
 	$description= Input::getString('description');
 

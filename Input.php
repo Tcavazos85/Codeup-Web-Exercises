@@ -53,6 +53,30 @@ class Input
            return $value;
     }
 
+    // public static function getDate($key)
+    // {
+    //     $date = trim(self::get($key));
+    //     if(!strtotime($date)) 
+    //     {
+    //         throw new Exception("{$key} must be a in YYYY-MM-DD format");
+    //     } else {
+    //           $dateArray= date_parse(date("y-m-d", strtotime($date)));
+    //           if(checkdate($dateArray['month'], $dateArray['day'], $dateArray['year']))
+    //           {
+    //             return date("y-m-d", strtotime($date));
+    //           } else {
+    //             throw new Exception("not a valid date.");
+    //             }
+    //         }
+    // }
+
+    public static function getDate($key)
+    {
+        $date = new DateTime(Input::get($key));
+        return $date;
+    }
+
+
     ///////////////////////////////////////////////////////////////////////////
     //                      DO NOT EDIT ANYTHING BELOW!!                     //
     // The Input class should not ever be instantiated, so we prevent the    //
