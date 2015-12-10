@@ -44,13 +44,13 @@ class Input
     }
     public static function getNumber($key)
     {
-        $value = self::get($key);
+        $value = trim(self::get($key));
 
-        if (!is_integer($value);
+        if(!is_numeric($value));
         {
             throw new Exception("{$key} must be an integer");    
         }
-           return trim($value);
+           return $value;
     }
 
     ///////////////////////////////////////////////////////////////////////////
