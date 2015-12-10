@@ -32,6 +32,27 @@ class Input
         return self::has($key) ? $_REQUEST[$key] : $default;
     }
 
+    public static function getString($key)
+    {
+        $value = self::get($key);
+
+        if (!is_string($value))
+        {
+            throw new Exception("{$key} must be a string");    
+        }
+           return trim($value);
+    }
+    public static function getNumber($key)
+    {
+        $value = self::get($key);
+
+        if (!is_integer($value);
+        {
+            throw new Exception("{$key} must be an integer");    
+        }
+           return trim($value);
+    }
+
     ///////////////////////////////////////////////////////////////////////////
     //                      DO NOT EDIT ANYTHING BELOW!!                     //
     // The Input class should not ever be instantiated, so we prevent the    //
@@ -39,4 +60,5 @@ class Input
     // later in the curriculum.                                              //
     ///////////////////////////////////////////////////////////////////////////
     private function __construct() {}
+
 }
