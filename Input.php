@@ -72,8 +72,12 @@ class Input
 
     public static function getDate($key)
     {
-        $date = new DateTime(Input::get($key));
-        return $date;
+        try {
+          $date = new DateTime(Input::get($key));
+                return $date;
+        } catch (Exception $e) {
+          throw new Exception('Invalid Date'); 
+        }
     }
 
 

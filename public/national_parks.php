@@ -3,7 +3,7 @@ require_once '../parks_test.php';
 require_once '../db_connect.php';
 require_once '../input.php';
 
-
+$errors = [];
 $page = Input::has('page')? Input::get('page'): 1;
 
 $selectCount = 'SELECT count(*) FROM national_parks';
@@ -38,12 +38,6 @@ $parks = $stmt2->fetchAll(PDO::FETCH_ASSOC);
 
 function insertPark($dbc)
 {
-	$name = Input::getString('name');
-	$location=Input::getString('location');
-	$date_established= Input::getDate('date_established')->format('Y-m-d');
-	$area_in_acres= Input::getString('area_in_acres');
-	$description= Input::getString('description');
-
 	$query = "INSERT INTO national_parks(name, location, date_established, area_in_acres, description)
 	VALUES (:name, :location, :date_established, :area_in_acres, :description)";
 
@@ -54,7 +48,6 @@ function insertPark($dbc)
 	$stmt3->bindValue(':area_in_acres', $area_in_acres, PDO::PARAM_STR);
 	$stmt3->bindValue(':description', $description, PDO::PARAM_STR);
 	$stmt3->execute();
-
 }
 
 if (!empty($_POST)){
@@ -63,10 +56,42 @@ if (!empty($_POST)){
 		Input::notEmpty('date_established')&&
 		Input::notEmpty('area_in_acres') &&
 		Input::notEmpty('description'))
-		{
+	{
+		try {
+			$name = Input::getString('name');
+		} catch (Exception $e) {
+			$error = "Error Name " .$e->getMessage();
+			array_push($errors, $error);
+		}
+		try {
+			$location=Input::getString('location');
+		} catch (Exception $e) {
+			$error = "Error Location " .$e->getMessage();
+			array_push($errors, $error);
+		}
+		try {
+			$date_established= Input::getDate('date_established')->format('Y-m-d');
+		} catch (Exception $e) {
+			$error = "Error Date " .$e->getMessage();
+			array_push($errors, $error);
+		}
+		try {
+			$area_in_acres= Input::getString('area_in_acres');
+		} catch (Exception $e) {
+			$error = "Error Area " .$e->getMessage();
+			array_push($errors, $error);
+		}
+		try {
+			$description= Input::getString('description');
+		} catch (Exception $e) {
+			$error = "Error Description " .$e->getMessage();
+			array_push($errors, $error);
+		}
+		if(empty($errors)){
 			insertPark($dbc);
-		} else {
-		 $denied = "You cannot submit an empty form";
+		}
+	} else {
+	 	$denied = "You cannot submit an empty form";
 		}
 	}
 // var_dump($_POST);
@@ -113,19 +138,32 @@ if (!empty($_POST)){
 				<form action="national_parks.php" method="post">
 					<br>
 					Park Name:
-					<input type="text" name="name">
+					<?php $formName = (isset($_POST['name'])) ? $_POST['name'] : '';?>
+					<input type="text" name="name" value="<?= $formName;?>">
 					Location:
-					<input type="text" name="location">
+					<?php $formLocation = (isset($_POST['location'])) ? $_POST['location'] : '';?>
+					<input type="text" name="location" value="<?= $formLocation;?>">
 					Date Established: 
-					<input type="text" name="date_established">
+					<?php $formDateEst = (isset($_POST['date_established'])) ? $_POST['date_established'] : '';?>
+					<input type="text" name="date_established" value="<?= $formDateEst;?>">
 					Area in Acres:
-					<input type="text" name="area_in_acres">
+					<?php $formArea = (isset($_POST['area_in_acres'])) ? $_POST['area_in_acres'] : '';?>
+					<input type="text" name="area_in_acres" value="<?= $formArea;?>">
 					<br>
 					Description:
-					<input type="text" name="description">
+					<?php $formDescription = (isset($_POST['description'])) ? $_POST['description'] : '';?>
+					<input type="text" name="description" value="<?= $formDescription;?>">
 					<br>
 					<input type="submit" name="submit">
 				</form>
+			</div>
+			<div>
+				<h3>Errors</h3>
+				<?php if(!empty($errors)):?>
+				<?php foreach ($errors as $key => $value):?>
+					<p><?= $value ?></p>
+				<?php endforeach ?>	
+				<?php endif ?>
 			</div>
 		</div>
 	</body>
